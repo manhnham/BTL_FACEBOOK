@@ -32,7 +32,7 @@
       <div class="bg-white shadow rounded p-3 input-group-lg">
         <input type="email" class="form-control my-3" placeholder="Email hoặc số điện thoại" />
         <input type="password" class="form-control my-3" placeholder="Mật khẩu" />
-        <a href="./feed.html"><button class="btn btn-primary w-100 my-3">Đăng nhập</button></a>
+        <a href="./feed.php"><button class="btn btn-primary w-100 my-3">Đăng nhập</button></a>
         <a href="#" class="text-decoration-none text-center">
           <p>Quên mật khẩu?</p>
         </a>
