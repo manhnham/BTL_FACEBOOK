@@ -32,6 +32,10 @@ CREATE TABLE `users` (
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dates` int(11) NOT NULL,
+  `months` int(11) NOT NULL,
+  `years` int(11) NOT NULL,
+  `genders` varchar(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `email_verification_link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL

@@ -3,7 +3,7 @@
     $server='localhost';
     $username='root';
     $password='';
-    $dbname = "user_registration";
+    $dbname = "facebook";
     $conn=mysqli_connect($server,$username,$password,$dbname);
       if(!$conn){
           die('Could not Connect MySql Server:' .mysql_error());

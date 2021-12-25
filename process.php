@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['btnRegister']) && $_POST['email'])
 {
    
@@ -9,12 +8,14 @@ if(isset($_POST['btnRegister']) && $_POST['email'])
     if(mysqli_num_rows($result)<= 0)
     {
         $token = md5($_POST['email']).rand(10,9999);
-        $name = $_POST['name'];
-        $lastName = $_POST['lastName'];
-        $name.= $lastName;
+        $name = $_POST['name'] . ' ' . $_POST['lastName'];
         $email = $_POST['email'];
-        $pass = password_hash($_POST['password'],PASSWORD_DEFAULT);
-        $sql = "INSERT INTO users(name, email, email_verification_link ,password) VALUES('$name','$email','$token','$pass')";
+        $pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $dates = $_POST['dates'];
+        $months = $_POST['months'];
+        $years = $_POST['years'];
+        $genders = $_POST['genders'];
+        $sql = "INSERT INTO users(name, email, dates, months, years, genders, email_verification_link ,password) VALUES('$name','$email', '$dates', '$months', '$years', '$genders', '$token','$pass')";
         mysqli_query($conn, $sql);
         $link = "<a href='localhost/facebook/activation.php?key=".$email."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
         include "send-email.php";
