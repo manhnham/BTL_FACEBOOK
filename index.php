@@ -34,7 +34,7 @@
       <div class="bg-white shadow rounded p-3 input-group-lg">
         <input type="email" class="form-control my-3" placeholder="Email hoặc số điện thoại" />
         <input type="password" class="form-control my-3" placeholder="Mật khẩu" />
-        <a href="./feed.php"><button class="btn btn-primary w-100 my-3">Đăng nhập</button></a>
+        <a><button class="btn btn-primary w-100 my-3">Đăng nhập</button></a>
         <a href="#" class="text-decoration-none text-center">
           <p>Quên mật khẩu?</p>
         </a>
@@ -215,7 +215,7 @@
         <!-- modal end -->
       </div>
       <!-- tag -->
-      <div class="my-5 pb-5 text-center">
+      <div class="my-5 pb-5 text-center mt-3">
         <p class="fw-bold"><a href="#" class="text-decoration-none text-dark">Tạo trang</a> <span
             class="fw-normal">dành cho người nổi tiếng, thương hiệu hoặc doanh<br> nghiệp.</span></p>
       </div>
