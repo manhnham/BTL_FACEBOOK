@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
+} else {
+  header("location: index.php");
+
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -1340,7 +1349,7 @@
           <li class="dropdown-item p-1 my-3 rounded" type="button">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a href="./index.html" class="d-flex text-decoration-none text-dark">
+                <a href="process-logout.php" class="d-flex text-decoration-none text-dark">
                   <i class="fas fa-cog bg-gray p-2 rounded-circle"></i>
                   <div class="
                           ms-3
