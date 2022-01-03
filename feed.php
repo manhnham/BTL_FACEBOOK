@@ -168,12 +168,16 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
         <!-- menus -->
         <div class="col-2 d-flex align-items-center justify-content-end">
           <!-- avatar -->
+          <a href="profile.php" style="text-decoration: none">
           <div class="align-items-center justify-content-center d-none d-xl-flex">
+           
             <img
               src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-1/cp0/c163.42.291.292a/s80x80/245265801_1782202625303869_6260711662080745064_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=7206a8&_nc_ohc=FYu6UtXBGq8AX9fq_Ed&_nc_ht=scontent-sin6-2.xx&oh=00_AT_A4VjMPBpTiJpYkWyLb5VKaW3YbZTbc5p8R8fH_bQT8w&oe=61C83115"
               class="rounded-circle me-2" alt="avatar" style="width: 38px; height: 38px; object-fit: cover" />
-            <p class="m-0">Anata Manh</p>
+            <p class="m-0" style="color:black">Anata Manh</p>
+          
           </div>
+          </a>
           <!-- main menu -->
           <div class="
                 rounded-circle
@@ -4285,7 +4289,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
     crossorigin="anonymous"></script>
-  <script src="./main.js"></script>
+  
 </body>
 
 </html>
