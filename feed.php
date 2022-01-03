@@ -2648,78 +2648,7 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
       <div class="col-12 col-lg-6 pb-5">
         <div class="d-flex flex-column justify-content-center w-100 mx-auto"
           style="padding-top: 56px; max-width: 680px">
-          <!-- stories -->
-          <div class="mt-5 d-flex justify-content-between position-relative">
-            <!-- s 1 -->
-            <div class="mx-1 bg-white rounded story" type="button" style="width: 6em; height: 190px">
-              <img
-                src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-1/cp0/c163.42.291.292a/s80x80/245265801_1782202625303869_6260711662080745064_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=7206a8&_nc_ohc=FYu6UtXBGq8AX9fq_Ed&_nc_ht=scontent-sin6-2.xx&oh=00_AT_A4VjMPBpTiJpYkWyLb5VKaW3YbZTbc5p8R8fH_bQT8w&oe=61C83115"
-                class="card-img-top" alt="story posts" style="min-height: 150px; object-fit: cover" />
-              <div class="
-                    d-flex
-                    align-items-center
-                    justify-content-center
-                    position-relative
-                  " style="min-height: 65px">
-                <p class="mb-0 text-center fs-7 fw-bold">Tạo tin</p>
-                <div class="position-absolute top-0 start-50 translate-middle">
-                  <i class="
-                        fas
-                        fa-plus-circle
-                        fs-3
-                        text-primary
-                        bg-white
-                        p-1
-                        rounded-circle
-                      "></i>
-                </div>
-              </div>
-            </div>
-            <!-- s 2 -->
-            <div class="rounded mx-1 story" type="button" style="width: 6em; height: 190px">
-              <img src="https://source.unsplash.com/random/2" class="card-img-top rounded" alt="story posts"
-                style="min-height: 190px; object-fit: cover" />
-            </div>
-            <!-- s 3 -->
-            <div class="rounded mx-1 story" type="button" style="width: 6em; height: 190px">
-              <img src="https://source.unsplash.com/random/3" class="card-img-top rounded" alt="story posts"
-                style="min-height: 190px; object-fit: cover" />
-            </div>
-            <!-- s 4 -->
-            <div class="rounded mx-1 story" type="button" style="width: 6em; height: 190px">
-              <img src="https://source.unsplash.com/random/4" class="card-img-top rounded" alt="story posts"
-                style="min-height: 190px; object-fit: cover" />
-            </div>
-            <!-- s 5 -->
-            <div class="d-none d-lg-block rounded mx-1 story" type="button" style="width: 6em; height: 190px">
-              <img src="https://source.unsplash.com/random/5" class="card-img-top rounded" alt="story posts"
-                style="min-height: 190px; object-fit: cover" />
-            </div>
-            <!-- s 6 -->
-            <div class="d-none d-lg-block rounded mx-1 story" type="button" style="width: 6em; height: 190px">
-              <img src="https://source.unsplash.com/random/6" class="card-img-top rounded" alt="story posts"
-                style="min-height: 190px; object-fit: cover" />
-            </div>
-            <!-- next icon -->
-            <div class="
-                  position-absolute
-                  top-50
-                  start-100
-                  translate-middle
-                  pointer
-                  d-none d-lg-block
-                ">
-              <i class="
-                    fas
-                    fa-arrow-right
-                    p-3
-                    border
-                    text-muted
-                    bg-white
-                    rounded-circle
-                  "></i>
-            </div>
-          </div>
+         
           <!-- create post -->
           <div class="bg-white p-3 mt-3 rounded border shadow">
             <!-- avatar -->
