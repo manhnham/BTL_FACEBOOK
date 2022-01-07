@@ -27,9 +27,9 @@ SET time_zone = "+00:00";
 -- Cấu trúc bảng cho bảng `users`
 --
 
-CREATE TABLE `MONHOC` (
-  `mamh` int(11) NOT NULL,
-  `ten_mh` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dates` int(11) NOT NULL,
@@ -97,6 +97,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `db_images` (
   `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `uploaded_on` datetime NOT NULL,
   `status` enum('1','0') COLLATE utf8_unicode_ci NOT NULL DEFAULT '1'
@@ -106,16 +107,16 @@ CREATE TABLE `db_images` (
 -- Đang đổ dữ liệu cho bảng `db_images`
 --
 
-INSERT INTO `db_images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
-(1, 'Screenshot (21).png', '2022-01-02 20:07:36', '1'),
-(2, 'Screenshot (22).png', '2022-01-02 20:40:53', '1'),
-(3, 'Screenshot (18).png', '2022-01-02 20:41:48', '1'),
-(4, 'Screenshot (2).png', '2022-01-03 13:39:43', '1'),
-(5, 'Screenshot (3).png', '2022-01-03 14:12:47', '1'),
-(6, 'Screenshot (102).png', '2022-01-03 14:27:18', '1'),
-(7, 'Screenshot (158).png', '2022-01-03 14:38:49', '1'),
-(8, 'Screenshot (156).png', '2022-01-03 14:40:07', '1'),
-(9, 'Screenshot (175).png', '2022-01-03 15:25:39', '1');
+INSERT INTO `db_images` (`id`, `user_id`, `file_name`, `uploaded_on`, `status`) VALUES
+(1, `1`, 'Screenshot (21).png', '2022-01-02 20:07:36', '1'),
+(2, `1`, 'Screenshot (22).png', '2022-01-02 20:40:53', '1'),
+(3, `1`, 'Screenshot (18).png', '2022-01-02 20:41:48', '1'),
+(4, `1`, 'Screenshot (2).png', '2022-01-03 13:39:43', '1'),
+(5, `1`, 'Screenshot (3).png', '2022-01-03 14:12:47', '1'),
+(6, `1`, 'Screenshot (102).png', '2022-01-03 14:27:18', '1'),
+(7, `1`, 'Screenshot (158).png', '2022-01-03 14:38:49', '1'),
+(8, `1`, 'Screenshot (156).png', '2022-01-03 14:40:07', '1'),
+(9, `1`, 'Screenshot (175).png', '2022-01-03 15:25:39', '1');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -125,7 +126,8 @@ INSERT INTO `db_images` (`id`, `file_name`, `uploaded_on`, `status`) VALUES
 -- Chỉ mục cho bảng `db_images`
 --
 ALTER TABLE `db_images`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`)
+  ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
