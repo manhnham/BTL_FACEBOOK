@@ -108,15 +108,15 @@ CREATE TABLE `db_images` (
 --
 
 INSERT INTO `db_images` (`id`, `user_id`, `file_name`, `uploaded_on`, `status`) VALUES
-(1, `1`, 'Screenshot (21).png', '2022-01-02 20:07:36', '1'),
-(2, `1`, 'Screenshot (22).png', '2022-01-02 20:40:53', '1'),
-(3, `1`, 'Screenshot (18).png', '2022-01-02 20:41:48', '1'),
-(4, `1`, 'Screenshot (2).png', '2022-01-03 13:39:43', '1'),
-(5, `1`, 'Screenshot (3).png', '2022-01-03 14:12:47', '1'),
-(6, `1`, 'Screenshot (102).png', '2022-01-03 14:27:18', '1'),
-(7, `1`, 'Screenshot (158).png', '2022-01-03 14:38:49', '1'),
-(8, `1`, 'Screenshot (156).png', '2022-01-03 14:40:07', '1'),
-(9, `1`, 'Screenshot (175).png', '2022-01-03 15:25:39', '1');
+(1, 1, 'Screenshot (21).png', '2022-01-02 20:07:36', '1'),
+(2, 1, 'Screenshot (22).png', '2022-01-02 20:40:53', '1'),
+(3, 1, 'Screenshot (18).png', '2022-01-02 20:41:48', '1'),
+(4, 1, 'Screenshot (2).png', '2022-01-03 13:39:43', '1'),
+(5, 1, 'Screenshot (3).png', '2022-01-03 14:12:47', '1'),
+(6, 1, 'Screenshot (102).png', '2022-01-03 14:27:18', '1'),
+(7, 1, 'Screenshot (158).png', '2022-01-03 14:38:49', '1'),
+(8, 1, 'Screenshot (156).png', '2022-01-03 14:40:07', '1'),
+(9, 1, 'Screenshot (175).png', '2022-01-03 15:25:39', '1');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -126,7 +126,7 @@ INSERT INTO `db_images` (`id`, `user_id`, `file_name`, `uploaded_on`, `status`) 
 -- Chỉ mục cho bảng `db_images`
 --
 ALTER TABLE `db_images`
-  ADD PRIMARY KEY (`id`)
+  ADD PRIMARY KEY (`id`),
   ADD FOREIGN KEY (`user_id`) REFERENCES `users`(`id`);
 
 --
