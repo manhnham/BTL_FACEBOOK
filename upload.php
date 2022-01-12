@@ -1,6 +1,6 @@
 <?php
 
-require 'dbConfig.php';
+require 'config/database-connection.php';
 $statusMsg = '';
 
 

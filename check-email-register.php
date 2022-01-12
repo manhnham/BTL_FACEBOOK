@@ -1,7 +1,7 @@
 <?php
 if($_POST['email'])
 { 
-    require"db.php";
+    require"config/database-connection.php";
     $result = mysqli_query($conn,"SELECT * FROM users WHERE email='" .$_POST['email'] . "'");
 
 

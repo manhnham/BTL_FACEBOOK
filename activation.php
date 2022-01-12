@@ -13,7 +13,7 @@
         <?php
     if($_GET['key'] && $_GET['token'])
     {
-                require "db.php";
+                require "config/database-connection.php";
                 $email = $_GET['key'];
                 $token = $_GET['token'];
                 $sql =  "SELECT * FROM `users` WHERE `email_verification_link`='".$token."' and `email`='$email'";

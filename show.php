@@ -1,6 +1,6 @@
 <?php
 // Include the database configuration file
-include 'dbConfig.php';
+include 'config/database-connection.php';
 
 // Get images from the database
 $result = mysqli_query($db,"SELECT * FROM db_images ORDER BY uploaded_on DESC");

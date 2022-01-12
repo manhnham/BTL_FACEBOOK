@@ -2,7 +2,7 @@
 if(isset($_POST['btnRegister']) && $_POST['email'])
 {
    
-    require "db.php";
+    require "config/database-connection.php";
     $result = mysqli_query($conn,"SELECT * FROM users WHERE email='" . $_POST['email'] . "'");
 
     if(mysqli_num_rows($result)<= 0)
@@ -17,7 +17,7 @@ if(isset($_POST['btnRegister']) && $_POST['email'])
         $genders = $_POST['genders'];
         $sql = "INSERT INTO users(name, email, dates, months, years, genders, email_verification_link ,password) VALUES('$name','$email', '$dates', '$months', '$years', '$genders', '$token','$pass')";
         mysqli_query($conn, $sql);
-        $link = "<a href='localhost/facebook/activation.php?key=".$email."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
+        $link = "<a href='localhost/BTL_FACEBOOK/activation.php?key=".$email."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
         include "send-email.php";
         if(sendEmailForAccountActive($email, $link)){
             echo"Vui lòng kiểm tra hộp thư để kích hoạt tài khoản";

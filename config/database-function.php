@@ -1,5 +1,5 @@
 <?php
-    require_once('database-connection.php');
+    require_once('config/database-connection.php');
     function simpleQuery($sql, bool $isGet = true, $params = []){
         // is get = true => get else set
         // warning: it will throws fatal error if you dont know how to use it
