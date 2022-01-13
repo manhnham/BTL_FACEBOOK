@@ -17,8 +17,7 @@ $conn = connect();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FaceBook</title>
-    
+    <title>Social Network</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 </head>
 <body>
@@ -27,13 +26,13 @@ $conn = connect();
         <br>
         <div class="createpost">
             <form method="post" action="" onsubmit="return validatePost()" enctype="multipart/form-data">
-                <h2>Đăng bài</h2>
+                <h2>Make Post</h2>
                 <hr>
                 <span style="float:right; color:black">
                 <input type="checkbox" id="public" name="public">
-                <label for="public">Công Khai</label>
+                <label for="public">Public</label>
                 </span>
-                Bài Viết <span class="required" style="display:none;"> *Bạn không thể để trống.</span><br>
+                Caption <span class="required" style="display:none;"> *You can't Leave the Caption Empty.</span><br>
                 <textarea rows="6" name="caption"></textarea>
                 <center><img src="" id="preview" style="max-width:580px; display:none;"></center>
                 <div class="createpostbuttons">
@@ -48,7 +47,7 @@ $conn = connect();
                 </div>
             </form>
         </div>
-        <h1>Bài Đăng mới nhất</h1>
+        <h1>News Feed</h1>
         <?php 
         // Public Posts Union Friends' Private Posts
         $sql = "SELECT posts.post_caption, posts.post_time, posts.post_public, users.user_firstname,
@@ -126,7 +125,6 @@ $conn = connect();
             return true;
         }
     </script>
-    
 </body>
 </html>
 

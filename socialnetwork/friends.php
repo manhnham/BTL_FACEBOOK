@@ -12,7 +12,7 @@ $conn = connect();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FaceBook</title>
+    <title>Social Network</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     <style>
     .frame a{
@@ -27,7 +27,7 @@ $conn = connect();
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Bạn Bè</h1>
+        <h1>Friends</h1>
         <?php
             echo '<center>'; 
             $sql = "SELECT users.user_id, users.user_firstname, users.user_lastname, users.user_gender

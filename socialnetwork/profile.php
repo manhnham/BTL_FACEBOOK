@@ -23,7 +23,7 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FaceBook</title>
+    <title>Social Network</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     <style>
     .post{
@@ -62,7 +62,7 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Trang Cá Nhân</h1>
+        <h1>Profile</h1>
         <?php
         $postsql;
         if($flag == 0) { // Your Own Profile       
@@ -159,29 +159,29 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
                 <br>
                 <?php if($flag == 0){?>
                 <div class="profile">
-                    <center class="changeprofile">Thay đổi ảnh đại diện</center>
+                    <center class="changeprofile">Change Profile Picture</center>
                     <br>
                     <form action="" method="post" enctype="multipart/form-data">
                         <center>
                             <label class="upload" onchange="showPath()">
-                                <span id="path" style="color: white;">... Chọn Ảnh</span>
+                                <span id="path" style="color: white;">... Browse</span>
                                 <input type="file" name="fileUpload" id="selectedFile">
                             </label>
                         </center>
                         <br>
-                        <input type="submit" value="Đăng" name="profile">
+                        <input type="submit" value="Upload Image" name="profile">
                     </form>
                 </div>
                 <br>
                 <div class="profile">
-                    <center class="changeprofile">Thêm số điện thoại : </center>
+                    <center class="changeprofile">Add Phone Number</center>
                     <br>
                     <form method="post" onsubmit="return validateNumber()">
                         <center>
                             <input type="text" name="number" id="phonenum">
                             <div class="required"></div>
                             <br>
-                            <input type="submit" value="Thêm" name="phone">
+                            <input type="submit" value="Submit" name="phone">
                         </center>
                     </form>
                 </div>

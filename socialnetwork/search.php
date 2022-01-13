@@ -14,13 +14,13 @@ $conn = connect();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FaceBook</title>
+    <title>Social Network</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 </head>
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Kết quả tìm kiếm</h1>
+        <h1>Search Results</h1>
         <?php
             $location = $_GET['location'];
             $key = $_GET['query'];

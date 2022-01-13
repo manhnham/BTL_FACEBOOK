@@ -12,7 +12,7 @@ $conn = connect();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Facebook</title>
+    <title>Social Network</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
 </head>
 <body>

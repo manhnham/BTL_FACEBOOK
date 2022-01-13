@@ -5,11 +5,9 @@
         $query2 = mysqli_query($conn, $sql2);
         $row = mysqli_fetch_assoc($query2);
     ?>
-
     <ul> <!-- Ensure there are no enter escape characters.-->
         <li><a href="requests.php">Friend Requests (<?php echo $row['count'] ?>)</a></li><li><a href="profile.php">Profile</a></li><li><a href="friends.php">Friends</a></li><li><a href="home.php">Home</a></li><li><a href="logout.php">Log Out</a></li>
     </ul>
-    
     <div class="globalsearch">
         <form method="get" action="search.php" onsubmit="return validateField()"> <!-- Ensure there are no enter escape characters.-->
             <select name="location">
