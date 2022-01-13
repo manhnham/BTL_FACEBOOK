@@ -275,12 +275,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
         $userfirstname = $_POST['userfirstname'];
         $userlastname = $_POST['userlastname'];
         $usernickname = $_POST['usernickname'];
-        $userpassword = md5($_POST['userpass']);
+        $userpassword = password_hash($_POST['userpass'], PASSWORD_DEFAULT);
         $useremail = $_POST['useremail'];
         $userbirthdate = $_POST['selectyear'] . '-' . $_POST['selectmonth'] . '-' . $_POST['selectday'];
         $usergender = $_POST['usergender'];
-        $userhometown = $_POST['userhometown'];
-        $userabout = $_POST['userabout'];
+        $userhometown = ' ';
+        $userabout = ' ';
+        $token = md5($_POST['useremail']).rand(10,9999);
         if (isset($_POST['userstatus'])){
             $userstatus = $_POST['userstatus'];
         }
@@ -303,14 +304,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
             }
         }
         // Insert Data
-        $sql = "INSERT INTO users(user_firstname, user_lastname, user_nickname, user_password, user_email, user_gender, user_birthdate, user_status, user_about, user_hometown)
-                VALUES ('$userfirstname', '$userlastname', '$usernickname', '$userpassword', '$useremail', '$usergender', '$userbirthdate', '$userstatus', '$userabout', '$userhometown')";
-        $query = mysqli_query($conn, $sql);
+        $sql = "INSERT INTO users(user_firstname, user_lastname, user_nickname, user_password, user_email, user_gender, user_birthdate, user_status, user_about, user_hometown, email_verification_link)
+                VALUES ('$userfirstname', '$userlastname', '$usernickname', '$userpassword', '$useremail', '$usergender', '$userbirthdate', '$userstatus', '$userabout', '$userhometown', '$token')";
+                $query = mysqli_query($conn, $sql);
         if($query){
-            $query = mysqli_query($conn, "SELECT user_id FROM users WHERE user_email = '$useremail'");
-            $row = mysqli_fetch_assoc($query);
-            $_SESSION['user_id'] = $row['user_id'];
-            header("location:home.php");
+            
+
+
+            $link = "<a href='localhost/socialnetwork/activation.php?key=".$useremail."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
+            include "send-email.php";
+            if(sendEmailForAccountActive($useremail, $link)){
+                echo"Vui lòng kiểm tra hộp thư để kích hoạt tài khoản";
+            }else{
+                echo"Xin lỗi email chưa đc gửi vui lòng kiểm tra lại";
+            }
         }
     }
 }
