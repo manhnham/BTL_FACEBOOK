@@ -12,7 +12,7 @@ $conn = connect();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Social Network</title>
+    <title>MyFace</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -32,7 +32,7 @@ $conn = connect();
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Friends</h1>
+        <h1>Bạn bè</h1>
         <?php
             echo '<center>'; 
             $sql = "SELECT users.user_id, users.user_firstname, users.user_lastname, users.user_gender
@@ -53,7 +53,7 @@ $conn = connect();
             if($query){
                 if(mysqli_num_rows($query) == 0){
                     echo '<div class="post">';
-                    echo 'You don\'t yet have any friends.';
+                    echo 'Bạn không có bạn bè nào cả. Hãy kết nối với bạn bè ngay nào!';
                     echo '</div>';
                 } else {
                     while($row = mysqli_fetch_assoc($query)){

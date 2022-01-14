@@ -349,7 +349,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
             
 
 
-            $link = "<a href='localhost/socialnetwork/activation.php?key=".$useremail."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
+            $link = "<a href='localhost/BTL_FACEBOOK/MyFace/activation.php?key=".$useremail."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
             include "send-email.php";
             if(sendEmailForAccountActive($useremail, $link)){
                 $message = "Vui lòng kiểm tra hộp thư để kích hoạt tài khoản";

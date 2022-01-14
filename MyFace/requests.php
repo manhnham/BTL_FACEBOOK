@@ -23,7 +23,7 @@ $conn = connect();
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Friend Requests</h1>
+        <h1>Lời mời kết bạn</h1>
         <?php
         // Responding to Request
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -34,9 +34,9 @@ $conn = connect();
                 $query = mysqli_query($conn, $sql);
                 if($query){
                     echo '<div class="userquery">';
-                    echo 'You have accepted ' . $_GET['name'];
+                    echo 'Đồng ý kết bạn ' . $_GET['name'];
                     echo '<br><br>';
-                    echo 'Redirecting in 5 seconds';
+                    echo 'Đang chuyển hướng về trang chủ';
                     echo '<br><br>';
                     echo '</div>';
                     echo '<br>';
@@ -51,9 +51,9 @@ $conn = connect();
                 $query6 = mysqli_query($conn, $sql6);
                 if($query){
                     echo '<div class="userquery">';
-                    echo 'You have Ignored ' . $_GET['name'];
+                    echo 'Từ chối kết bạn ' . $_GET['name'];
                     echo '<br><br>';
-                    echo 'Redirecting in 5 seconds';
+                    echo 'Đang chuyển hướng về trang chủ';
                     echo '<br><br>';
                     echo '</div>';
                     echo '<br>';
@@ -76,7 +76,7 @@ $conn = connect();
         if($query){
             if(mysqli_num_rows($query) == 0){
                 echo '<div class="userquery">';
-                echo 'You have no pending friend requests.';
+                echo 'Bạn không có lời mời kết bạn nào.';
                 echo '<br><br>';
                 echo '</div>';
             }

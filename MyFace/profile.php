@@ -67,7 +67,7 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Profile</h1>
+        <h1>Trang cá nhân</h1>
         <?php
         $postsql;
         if($flag == 0) { // Your Own Profile       
@@ -146,11 +146,11 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
             if(mysqli_num_rows($postquery) == 0){ // No Posts
                 if($flag == 0){ // Message shown if it's your own profile
                     echo '<div class="post">';
-                    echo 'You don\'t have any posts yet';
+                    echo 'Bạn chưa có bài đăng nào.';
                     echo '</div>';
                 } else { // Message shown if it's another profile other than you.
                     echo '<div class="post">';
-                    echo 'There is no public posts to show.';
+                    echo 'Chưa có bài đăng nào để hiển thị.';
                     echo '</div>';
                 }
                 include 'includes/profile.php';
@@ -164,12 +164,12 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
                 <br>
                 <?php if($flag == 0){?>
                 <div class="profile">
-                    <center class="changeprofile">Change Profile Picture</center>
+                    <center class="changeprofile">Thay đổi ảnh đại diện</center>
                     <br>
                     <form action="" method="post" enctype="multipart/form-data">
                         <center>
                             <label class="upload" onchange="showPath()">
-                                <span id="path" style="color: white;">... Browse</span>
+                                <span id="path" style="color: white;">Chọn ảnh</span>
                                 <input type="file" name="fileUpload" id="selectedFile">
                             </label>
                         </center>
@@ -179,7 +179,7 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
                 </div>
                 <br>
                 <div class="profile">
-                    <center class="changeprofile">Add Phone Number</center>
+                    <center class="changeprofile">Thêm số điện thoại</center>
                     <br>
                     <form method="post" onsubmit="return validateNumber()">
                         <center>

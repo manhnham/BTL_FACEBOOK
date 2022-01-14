@@ -17,7 +17,7 @@ $conn = connect();
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Social Network</title>
+    <title>MyFace</title>
     <link rel="stylesheet" type="text/css" href="resources/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -31,13 +31,13 @@ $conn = connect();
         <br>
         <div class="createpost">
             <form method="post" action="" onsubmit="return validatePost()" enctype="multipart/form-data">
-                <h2>Make Post</h2>
+                <h2>Đăng dòng trạng thái</h2>
                 <hr>
                 <span style="float:right; color:black">
                 <input type="checkbox" id="public" name="public">
-                <label for="public">Public</label>
+                <label for="public">Đăng công khai <i class="fas fa-globe"></i></label>
                 </span>
-                Caption <span class="required" style="display:none;"> *You can't Leave the Caption Empty.</span><br>
+                Tiêu đề <span class="required" style="display:none;"> Tiêu đề không được để trống.</span><br>
                 <textarea rows="6" name="caption"></textarea>
                 <center><img src="" id="preview" style="max-width:580px; display:none;"></center>
                 <div class="createpostbuttons">
@@ -52,7 +52,7 @@ $conn = connect();
                 </div>
             </form>
         </div>
-        <h1>News Feed</h1>
+        <h1>Bảng Tin</h1>
         <?php 
         // Public Posts Union Friends' Private Posts
         $sql = "SELECT posts.post_caption, posts.post_time, posts.post_public, users.user_firstname,
