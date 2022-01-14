@@ -51,8 +51,8 @@ span {
 
 /*============== NAVBAR SETTINGS ============*/
 
-.usernav {
-    background-color: #4267b2;
+/* .usernav {
+    background-color: #ffffff;
     overflow: auto;
 }
 
@@ -74,12 +74,12 @@ span {
 
 .usernav ul li a:hover {
     background-color: #23385f;
-}
+} */
 
 
 /* Search */
 
-.usernav .globalsearch {
+/* .usernav .globalsearch {
     margin: 0;
     width: 60%;
     background-color: #4267b2;
@@ -111,7 +111,7 @@ span {
     margin-left: 5px;
     padding: 0.9px 0px;
     vertical-align: -1px;
-}
+} */
 
 
 /*============== POSTS SETTINGS ============*/

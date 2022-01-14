@@ -28,14 +28,14 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'manhstrong13@gmail.com';                     //SMTP username
-    $mail->Password   = 'uoairjixidhjjrif';                               //SMTP password
+    $mail->Username   = 'hoangnguyenviet13012002@gmail.com';                     //SMTP username
+    $mail->Password   = 'vcqdlowplgzvvusa';                               //SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
     $mail->Port       = 465;      
     $mail->CharSet = 'UTF-8';                              //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('manhstrong13@gmail.com','Nham Duc Manh');
+    $mail->setFrom('hoangnguyenviet13012002@gmail.com','MyFace');
     $mail->addAddress($email);     //Add a recipient
     
     
@@ -45,7 +45,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = '[Activation] facebook.com';
-    $mail->Body    = 'Chào mừng bạn đến với facebook.Để kích hoạt vui lòng bấm'.$link;
+    $mail->Body    = 'Chào mừng bạn đến với facebook. Để kích hoạt vui lòng bấm'.$link;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     if($mail->send()){

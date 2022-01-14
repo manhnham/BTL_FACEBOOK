@@ -24,33 +24,30 @@
                 }
                 $useremail = $_GET['key'];
                 $token = $_GET['token'];
-                $sql =  "SELECT * FROM `users` WHERE `email_verification_link`='".$token."' and `email`='$useremail'";
-                echo $sql;
-                $query = mysqli_query($conn, $sql);
-                echo $query;
+                $query = mysqli_query($conn, "SELECT * FROM `users` WHERE `email_verification_link`='".$token."' and `user_email`='".$useremail."'");
                 $d = date('Y-m-d H:i:s');
                 if (mysqli_num_rows($query) > 0) {
                 $row= mysqli_fetch_array($query);
                 if($row['email_verified_at'] == NULL){
-                    $sql2 = "UPDATE users set email_verified_at ='$d',stauser_active_statustus = 1 WHERE email='" . $useremail . "'";
-                mysqli_query($conn,$sql2);
-                $msg = "Congratulations! Your email has been verified.";
+                    $sql2 = "UPDATE `users` set `email_verified_at` ='$d',`user_active_status` = 1 WHERE `user_email`='".$useremail."'";
+                    mysqli_query($conn,$sql2);
+                    $msg = "Bạn đã kích hoạt tài khoản thành công! Vui lòng quay lại trang chủ để đăng nhập.";
                 }else{
-                $msg = "You have already verified your account with us";
+                $msg = "Email của bạn đã được kích hoạt";
                 }
     } else {
-    $msg = "This email has been not registered with us";
+    $msg = "Email chưa được đăng kí";
     }
     }
     else
     {
-    $msg = "Danger! Your something goes to wrong.";
+    $msg = "Đã xảy ra lỗi vui lòng thử lại sau";
     }
     ?>
         <div class="container mt-3">
             <div class="card">
                 <div class="card-header text-center">
-                    User Account Activation by Email Verification using PHP
+                    Kích hoạt tài khoản ứng dụng MyFace
                 </div>
                 <div class="card-body">
                     <p>

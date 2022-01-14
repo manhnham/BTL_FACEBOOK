@@ -14,9 +14,10 @@ user_status         CHAR(1),
 user_active_status  INT(11),
 email_verification_link VARCHAR(255),
 user_about          TEXT,
-email_verified_at   DATE NOT NULL,
+email_verified_at   DATE,
 user_hometown       VARCHAR(255),
-PRIMARY KEY (user_id)
+PRIMARY KEY (user_id),
+UNIQUE (user_email)
 );
 
 CREATE TABLE friendship (

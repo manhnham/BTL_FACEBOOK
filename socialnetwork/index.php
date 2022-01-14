@@ -21,10 +21,13 @@ ob_start();
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
     <!-- main style -->
-    <link rel="stylesheet" href="css/main.css" />
+    <!-- <link rel="stylesheet" href="css/main.css" /> -->
+    <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
 
 </head>
 
@@ -48,6 +51,7 @@ ob_start();
                     <form method="post" onsubmit="return validateLogin()">
                         <input type="text" class="form-control my-3" placeholder="Email hoặc số điện thoại" name="useremail" id="loginuseremail" />
                         <input type="password" class="form-control my-3" placeholder="Mật khẩu" name="userpass" id="loginuserpass" />
+                        <small class="required" style="color: red;"></small>
                         <button type="submit" class="btn btn-primary w-100 my-3" name="login" value="Login">Đăng nhập</button>
                     </form>
                 </div>
@@ -91,9 +95,32 @@ ob_start();
                                     <!-- email & pass -->
                                     <input type="text" class="form-control my-3" name="useremail" id="useremail"
                                         placeholder="Số di động hoặc Email" />
+                                        <small class="required" id="emailHelp" style="color: red;"></small>
+                                    
+                                        <script>
+                                            console.log("da chay den day");
+                                            jQuery(document).ready(function(){
+                                                console.log("da chay den day");
+                                                $("#useremail").change(function(){
+                                                    console.log("da chay den day");
+
+                                                    $.ajax({
+                                                       url:"check-email.php",
+                                                       type:"post", 
+                                                       data:{useremail:$(this).val()},
+                                                       success:function(res){
+                                                           $("#emailHelp").text(res);
+                                                       }
+                                                    })
+                                                })
+                                            })
+                                        </script>
+
 
                                     <input type="text" class="form-control my-3" name="usernickname" id="usernickname"
                                         placeholder="Tên tài khoản" />
+                                        <small class="required" style="color: red;"></small>
+
 
                                     <input type="password" class="form-control my-3" name="userpass" id="userpass"
                                         placeholder="Mật khẩu" required="" />
@@ -238,8 +265,7 @@ ob_start();
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    <script src="resources/bootstrap/js/bootstrap.bundle.min.js">
     </script>
 
 </body>
@@ -251,19 +277,34 @@ $conn = connect();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
     if (isset($_POST['login'])) { // Login process
         $useremail = $_POST['useremail'];
-        $userpass = md5($_POST['userpass']);
-        $query = mysqli_query($conn, "SELECT * FROM users WHERE user_email = '$useremail' AND user_password = '$userpass'");
+        $userpass = ($_POST['userpass']);
+        $query = mysqli_query($conn, "SELECT * FROM `users` WHERE `user_email`='".$useremail."'");
         if($query){
-            if(mysqli_num_rows($query) == 1) {
-                $row = mysqli_fetch_assoc($query);
-                $_SESSION['user_id'] = $row['user_id'];
-                $_SESSION['user_name'] = $row['user_firstname'] . " " . $row['user_lastname'];
-                header("location:home.php");
+            $row = mysqli_fetch_assoc($query);
+            if (mysqli_num_rows($query) == 1) {
+                if ($row['user_active_status'] == 1){
+                    if (password_verify($userpass, $row['user_password'])){
+                        $_SESSION['user_id'] = $row['user_id'];
+                        $_SESSION['user_name'] = $row['user_firstname'] . " " . $row['user_lastname'];
+                        header("location:home.php");
+                    }
+                } else {
+                    ?> <script>
+                    document.getElementsByClassName("required")[0].innerHTML = "Tài khoản chưa được kích hoạt!";
+                </script> <?php
+                }
+                
             }
+            
+            // if(mysqli_num_rows($query) == 1 ) {
+            //     // $row = mysqli_fetch_assoc($query);
+            //     // $_SESSION['user_id'] = $row['user_id'];
+            //     // $_SESSION['user_name'] = $row['user_firstname'] . " " . $row['user_lastname'];
+            //     // header("location:home.php");
+            // }
             else {
                 ?> <script>
-                    document.getElementsByClassName("required")[0].innerHTML = "Invalid Login Credentials.";
-                    document.getElementsByClassName("required")[1].innerHTML = "Invalid Login Credentials.";
+                    document.getElementsByClassName("required")[0].innerHTML = "Sai tên đăng nhập hoặc mật khẩu!";
                 </script> <?php
             }
         } else{
@@ -289,18 +330,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
             $userstatus = NULL;
         }
         // Check for Some Unique Constraints
-        $query = mysqli_query($conn, "SELECT user_nickname, user_email FROM users WHERE user_nickname = '$usernickname' OR user_email = '$useremail'");
+        $query = mysqli_query($conn, "SELECT `user_email` FROM `users` WHERE `user_email` = '".$useremail."'");
         if(mysqli_num_rows($query) > 0){
             $row = mysqli_fetch_assoc($query);
-            if($usernickname == $row['user_nickname'] && !empty($usernickname)){
-                ?> <script>
-                document.getElementsByClassName("required")[4].innerHTML = "This Nickname already exists.";
-                </script> <?php
-            }
+            
             if($useremail == $row['user_email']){
                 ?> <script>
-                document.getElementsByClassName("required")[7].innerHTML = "This Email already exists.";
+                document.getElementsByClassName("required")[1].innerHTML = "This Email already exists.";
                 </script> <?php
+                die();
             }
         }
         // Insert Data
@@ -314,9 +352,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
             $link = "<a href='localhost/socialnetwork/activation.php?key=".$useremail."&token=".$token."'>Nhấp vào đây để kích hoạt tài khoản</a>";
             include "send-email.php";
             if(sendEmailForAccountActive($useremail, $link)){
-                echo"Vui lòng kiểm tra hộp thư để kích hoạt tài khoản";
+                $message = "Vui lòng kiểm tra hộp thư để kích hoạt tài khoản";
+                echo "<script type='text/javascript'>alert('$message');</script>";
             }else{
-                echo"Xin lỗi email chưa đc gửi vui lòng kiểm tra lại";
+                $message = "Email chưa được gửi vui lòng thử lại";
+                echo "<script type='text/javascript'>alert('$message');</script>";
             }
         }
     }
