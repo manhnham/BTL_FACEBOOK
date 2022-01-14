@@ -59,11 +59,71 @@ if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
                 <input type="text" class="rounded-pill border-0 bg-gray dropdown-item" placeholder="Tìm..." autofocus />
               </li>
               <!-- search 1 -->
-              
+              <li class="my-4">
+                <div class="
+                      alert
+                      fade
+                      show
+                      dropdown-item
+                      p-1
+                      m-0
+                      d-flex
+                      align-items-center
+                      justify-content-between
+                    " role="alert">
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="https://scontent.fhan6-1.fna.fbcdn.net/v/t1.6435-1/p100x100/74465629_1917275761751079_3827880308250771456_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=7206a8&_nc_ohc=YQTmOMaD0e4AX_UqDji&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fhan6-1.fna&oh=00_AT9I9hS8Z6mSCiOvZ8pvvkf_KkRTnCUJx1lJiu31gb4K6g&oe=61EA0D0D"
+                      alt="avatar" class="rounded-circle me-2" style="width: 35px; height: 35px; object-fit: cover" />
+                    <p class="m-0">Nam</p>
+                  </div>
+                  <button type="button" class="btn-close p-0 m-0" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </li>
               <!-- search 2 -->
-             
+              <li class="my-4">
+                <div class="
+                      alert
+                      fade
+                      show
+                      dropdown-item
+                      p-1
+                      m-0
+                      d-flex
+                      align-items-center
+                      justify-content-between
+                    " role="alert">
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="https://scontent.fhan6-1.fna.fbcdn.net/v/t1.6435-1/p100x100/138624825_1909673372517303_3002946972548105971_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=8oeWXafwdwwAX9Bs43z&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fhan6-1.fna&oh=00_AT9HsaIoMawnmFKXmFoikggCHMkc2_yRSkVz08xPEDIvng&oe=61EA95FF"
+                      alt="avatar" class="rounded-circle me-2" style="width: 35px; height: 35px; object-fit: cover" />
+                    <p class="m-0">Minh</p>
+                  </div>
+                  <button type="button" class="btn-close p-0 m-0" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </li>
               <!-- search 3 -->
-            
+              <li class="my-4">
+                <div class="
+                      alert
+                      fade
+                      show
+                      dropdown-item
+                      p-1
+                      m-0
+                      d-flex
+                      align-items-center
+                      justify-content-between
+                    " role="alert">
+                  <div class="d-flex align-items-center">
+                    <img
+                      src="https://scontent.fhan6-1.fna.fbcdn.net/v/t39.30808-1/p100x100/265608411_1287766848365078_2044468679411445333_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=7206a8&_nc_ohc=3KR09bARupwAX_qdyus&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.fhan6-1.fna&oh=00_AT-YiME78wbJfbbWwBV-ZD2xes8dmtM88xBBAdzAxBmFmw&oe=61C85482"
+                      alt="avatar" class="rounded-circle me-2" style="width: 35px; height: 35px; object-fit: cover" />
+                    <p class="m-0">Duy</p>
+                  </div>
+                  <button type="button" class="btn-close p-0 m-0" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+              </li>
             </ul>
           </div>
         </div>

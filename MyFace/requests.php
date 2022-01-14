@@ -40,7 +40,7 @@ $conn = connect();
                     echo '<br><br>';
                     echo '</div>';
                     echo '<br>';
-                    header("refresh:5; url=requests.php" );
+                    // header("refresh:5; url=requests.php" );
                 }
                 else{
                     echo mysqli_error($conn);
@@ -57,7 +57,7 @@ $conn = connect();
                     echo '<br><br>';
                     echo '</div>';
                     echo '<br>';
-                    header("refresh:5; url=requests.php" );
+                    // header("refresh:5; url=requests.php" );
                 }
             }
         }
