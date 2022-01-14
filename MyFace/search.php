@@ -25,7 +25,7 @@ $conn = connect();
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Search Results</h1>
+        <h1>Kết quả tìm kiếm</h1>
         <?php
             $location = $_GET['location'];
             $key = $_GET['query'];
