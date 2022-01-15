@@ -124,6 +124,26 @@ ob_start();
 
                                     <input type="password" class="form-control my-3" name="userpass" id="userpass"
                                         placeholder="Mật khẩu" required="" required/>
+                                        <small class="required" id="passlHelp" style="color: red;"></small>
+                                        <script>
+                                            console.log("da chay den day");
+                                            jQuery(document).ready(function(){
+                                                console.log("da chay den day");
+                                                $("#userpass").change(function(){
+                                                    console.log("da chay den day");
+
+                                                    $.ajax({
+                                                       url:"check-pass.php",
+                                                       type:"post", 
+                                                       data:{userpass:$(this).val()},
+                                                       success:function(res){
+                                                           $("#passlHelp").text(res);
+                                                       }
+                                                    })
+                                                })
+                                            })
+                                        </script>
+                                        
 
                                     <input type="password" class="form-control my-3" name="userpassconfirm" id="userpassconfirm"
                                         placeholder="Nhập lại mật khẩu" required="" required/>
@@ -287,6 +307,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
                         $_SESSION['user_id'] = $row['user_id'];
                         $_SESSION['user_name'] = $row['user_firstname'] . " " . $row['user_lastname'];
                         header("location:home.php");
+                    } else {
+                        ?> <script>
+                    document.getElementsByClassName("required")[0].innerHTML = "Sai tên đăng nhập hoặc mật khẩu!";
+                </script> <?php
                     }
                 } else {
                     ?> <script>

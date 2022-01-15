@@ -46,10 +46,12 @@ $conn = connect();
                 Tiêu đề <span class="required" style="display:none;"> Tiêu đề không được để trống.</span><br>
                 <textarea rows="6" name="caption"></textarea>
                 <center><img src="" id="preview" style="max-width:580px; display:none;"></center>
-                <div class="createpostbuttons">
+                <div class="createpostbuttons" class="flex-d justify-content:center;">
                     <!--<form action="" method="post" enctype="multipart/form-data" id="imageform">-->
-                    <label>
-                        <img src="images/photo.png">
+                    <label style="width:100%;display:" class="mb-2">
+                        <b class="p-5 pb-0 pt-0">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</b>
+
+                        <img  src="images/photo.png">
                         <input type="file" name="fileUpload" id="imagefile">
                         <!--<input type="submit" style="display:none;">-->
                     </label>
