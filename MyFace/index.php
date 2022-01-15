@@ -86,15 +86,15 @@ ob_start();
                                     <!-- names -->
                                     <div class="row">
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Họ" name="userfirstname" id="userfirstname" />
+                                            <input type="text" class="form-control" placeholder="Họ" name="userfirstname" id="userfirstname" required />
                                         </div>
                                         <div class="col">
-                                            <input type="text" class="form-control" placeholder="Tên" name="userlastname" id="userlastname" />
+                                            <input type="text" class="form-control" placeholder="Tên" name="userlastname" id="userlastname" required />
                                         </div>
                                     </div>
                                     <!-- email & pass -->
                                     <input type="text" class="form-control my-3" name="useremail" id="useremail"
-                                        placeholder="Số di động hoặc Email" />
+                                        placeholder="Số di động hoặc Email" required/>
                                         <small class="required" id="emailHelp" style="color: red;"></small>
                                     
                                         <script>
@@ -118,15 +118,15 @@ ob_start();
 
 
                                     <input type="text" class="form-control my-3" name="usernickname" id="usernickname"
-                                        placeholder="Tên tài khoản" />
+                                        placeholder="Tên tài khoản" required />
                                         <small class="required" style="color: red;"></small>
 
 
                                     <input type="password" class="form-control my-3" name="userpass" id="userpass"
-                                        placeholder="Mật khẩu" required="" />
+                                        placeholder="Mật khẩu" required="" required/>
 
                                     <input type="password" class="form-control my-3" name="userpassconfirm" id="userpassconfirm"
-                                        placeholder="Nhập lại mật khẩu" required="" />
+                                        placeholder="Nhập lại mật khẩu" required="" required/>
 
                             
                                     <!-- DOB -->
@@ -175,7 +175,7 @@ ob_start();
                                         </div>
                                     </div>
                                     <!-- gender -->
-                                    <div class="row my-3">
+                                    <div class="row my-3" required>
                                         <span class="text-muted fs-7">Giới Tính <i class="fas fa-question-circle"
                                                 data-bs-toggle="popover" type="button"
                                                 data-bs-content="And here's some amazing content. It's very engaging. Right?"></i></span>
@@ -206,7 +206,7 @@ ob_start();
                                     </div>
                                     <!-- btn -->
                                     <div class="text-center mt-3">
-                                        <button type="submit" class="btn btn-success btn-lg" data-bs-dismiss="modal"
+                                        <button type="submit" class="btn btn-success btn-lg" 
                                             name="register" value="Create Account">Đăng ký</button>
                                     </div>
                                 </form>
@@ -336,7 +336,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') { // A form is posted
             
             if($useremail == $row['user_email']){
                 ?> <script>
-                document.getElementsByClassName("required")[1].innerHTML = "This Email already exists.";
+                alert("Email đã tồn tại! Hãy thử lại");
                 </script> <?php
                 die();
             }
