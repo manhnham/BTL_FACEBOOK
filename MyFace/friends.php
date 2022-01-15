@@ -27,12 +27,15 @@ $conn = connect();
     .frame a:hover{
         text-decoration: underline;
     }
+    body{
+    font-family: 'Lato', sans-serif;
+}
     </style>
 </head>
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Bạn bè</h1>
+        <h1 style="font-family: 'Lato', sans-serif;">Bạn bè</h1>
         <?php
             echo '<center>'; 
             $sql = "SELECT users.user_id, users.user_firstname, users.user_lastname, users.user_gender

@@ -62,12 +62,15 @@ if(isset($_GET['id']) && $_GET['id'] != $_SESSION['user_id']) {
         color: #23385f;
         font-family: Fontin SmallCaps;
     }
+    body{
+    font-family: 'Lato', sans-serif;
+}
     </style>
 </head>
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Trang cá nhân</h1>
+        <h1 style="font-family: 'Lato', sans-serif;">Trang cá nhân</h1>
         <?php
         $postsql;
         if($flag == 0) { // Your Own Profile       
@@ -208,10 +211,10 @@ function validateNumber(){
     var number = document.getElementById("phonenum").value;
     var required = document.getElementsByClassName("required");
     if(number == ""){
-        required[0].innerHTML = "You must type Your Number.";
+        required[0].innerHTML = "Bạn cần điền số điện thoại trước khi lưu.";
         return false;
     } else if(isNaN(number)){
-        required[0].innerHTML = "Phone Number must contain digits only."
+        required[0].innerHTML = "Số điện thoại chỉ bao gồm số."
         return false;
     }
     return true;

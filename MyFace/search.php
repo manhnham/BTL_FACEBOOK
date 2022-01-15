@@ -29,10 +29,10 @@ $conn = connect();
         <?php
             $location = $_GET['location'];
             $key = $_GET['query'];
-            if($location == 'emails') {
+            if($location == 'find') {
                 $sql = "SELECT * FROM users WHERE users.user_email = '$key'";
                 include 'includes/userquery.php';
-            } else if($location == 'names') {
+            } else if($location == 'name') {
                 $name = explode(' ', $key, 2); // Break String into Array.
                 if(empty($name[1])) {
                     $sql = "SELECT * FROM users WHERE users.user_firstname = '$name[0]' OR users.user_lastname= '$name[0]'";
@@ -40,10 +40,10 @@ $conn = connect();
                     $sql = "SELECT * FROM users WHERE users.user_firstname = '$name[0]' AND users.user_lastname= '$name[1]'";
                 }
                 include 'includes/userquery.php';
-            } else if($location == 'hometowns') {
+            } else if($location == 'find') {
                 $sql = "SELECT * FROM users WHERE users.user_hometown = '$key'";
                 include 'includes/userquery.php';
-            } else if($location == 'posts') {
+            } else if($location == 'find') {
                 $sql = "SELECT posts.post_caption, posts.post_time, posts.post_public, users.user_firstname,
                                 users.user_lastname, users.user_id, users.user_gender, posts.post_id
                         FROM posts

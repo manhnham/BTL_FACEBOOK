@@ -8,7 +8,7 @@ $width = '168px';
 $height = '168px';
 if(mysqli_num_rows($query) == 0){
     echo '<div class="userquery">';
-    echo 'We couldn\'t find any results for these keywords: ' . $key;
+    echo 'Không tim thấy người dùng hay bài viết nào với từ khóa: ' . $key;
     echo '<br><br>';
     echo '</div>';
 } else {

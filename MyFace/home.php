@@ -25,13 +25,19 @@ $conn = connect();
     <!-- bootstrap -->
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
 </head>
+<style>
+    body{
+    font-family: 'Lato', sans-serif;
+ 
+}
+</style>
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
         <br>
         <div class="createpost">
             <form method="post" action="" onsubmit="return validatePost()" enctype="multipart/form-data">
-                <h2>Đăng dòng trạng thái</h2>
+                <h2 style="font-family: 'Lato', sans-serif; ">Đăng dòng trạng thái</h2>
                 <hr>
                 <span style="float:right; color:black">
                 <input type="checkbox" id="public" name="public">
@@ -52,7 +58,7 @@ $conn = connect();
                 </div>
             </form>
         </div>
-        <h1>Bảng Tin</h1>
+        <h1 style="font-family: 'Lato', sans-serif; ">Bảng Tin</h1>
         <?php 
         // Public Posts Union Friends' Private Posts
         $sql = "SELECT posts.post_caption, posts.post_time, posts.post_public, users.user_firstname,
@@ -85,7 +91,7 @@ $conn = connect();
         }
         if(mysqli_num_rows($query) == 0){
             echo '<div class="post">';
-            echo 'There are no posts yet to show.';
+            echo 'Chưa có bài đăng nào để hiện thị.';
             echo '</div>';
         }
         else{

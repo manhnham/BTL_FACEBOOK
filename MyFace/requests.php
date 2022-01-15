@@ -20,10 +20,15 @@ $conn = connect();
     <!-- bootstrap -->
     <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
 </head>
+<style>
+    body{
+    font-family: 'Lato', sans-serif;
+}
+</style>
 <body>
     <div class="container">
         <?php include 'includes/navbar.php'; ?>
-        <h1>Lời mời kết bạn</h1>
+        <h1 style="font-family: 'Lato', sans-serif;">Lời mời kết bạn</h1>
         <?php
         // Responding to Request
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {

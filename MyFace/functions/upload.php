@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $filepath = "data/images/profiles/" . $_SESSION['user_id'] . '.' . $filetype;
                 if(move_uploaded_file($_FILES["fileUpload"]["tmp_name"], $filepath)){
                     $sql5 = "INSERT INTO posts (post_caption, post_public, post_time, post_by)
-                            VALUES ('" . $row['user_firstname'] . " " . $row['user_lastname'] . " has changed his profile picture.', 'N', NOW(), {$_SESSION['user_id']})";
+                            VALUES ('" . $row['user_firstname'] . " " . $row['user_lastname'] . " đã thay đổi ảnh đại diện.', 'N', NOW(), {$_SESSION['user_id']})";
                     $query5 = mysqli_query($conn, $sql5);
                     $last_id = mysqli_insert_id($conn);
                     $filepath2 = "data/images/posts/" . $last_id . '.' . $filetype;

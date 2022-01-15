@@ -26,7 +26,7 @@
                         <i class="fas fa-search me-2 text-muted"></i>
                         <form method="get" action="search.php" onsubmit="return validateField()">
                             <select name="location" style="display: none;">
-                                <option value="names">Names</option>
+                                <option value="name">Names</option>
                                 <option value="emails">Emails</option>
                                 <option value="hometowns">Hometowns</option>
                                 <option value="posts">Posts</option>
@@ -119,8 +119,12 @@
             
             $query = mysqli_query($conn, "SELECT * FROM `users` WHERE `user_id`='".$_SESSION['user_id']."'");
             $row = mysqli_fetch_assoc($query);
+            if ($row['is_admin'] == 1){
+                echo "Xin chào admin ";
+            }
             echo $row['user_firstname']." ".$row['user_lastname'];
             // echo $row['user_firstname'] . ' ' . $row['user_lastname']; 
+            
             ?>
                     </p>
 
@@ -150,24 +154,7 @@
             </a>
         </div>
         <!-- secondary menu dd -->
-        <ul class="dropdown-menu border-0 shadow p-3" aria-labelledby="secondMenu" style="width: 23em">
-            <!-- avatar -->
-            <li class="dropdown-item p-1 rounded d-flex" type="button">
-                <img src="https://scontent-sin6-2.xx.fbcdn.net/v/t39.30808-1/cp0/c163.42.291.292a/s80x80/245265801_1782202625303869_6260711662080745064_n.jpg?_nc_cat=102&amp;ccb=1-5&amp;_nc_sid=7206a8&amp;_nc_ohc=FYu6UtXBGq8AX9fq_Ed&amp;_nc_ht=scontent-sin6-2.xx&amp;oh=00_AT_A4VjMPBpTiJpYkWyLb5VKaW3YbZTbc5p8R8fH_bQT8w&amp;oe=61C83115"
-                    alt="avatar" class="rounded-circle me-2" style="width: 45px; height: 45px; object-fit: cover">
-                <div>
-                    <p class="m-0">Anata Manh</p>
-                    <p class="m-0 text-muted">Xem trang cá nhân của bạn</p>
-                </div>
-            </li>
-            <hr>
-            <!-- feedback -->
-
-            <hr>
-            <!-- options -->
-            <!-- 1 -->
-
-        </ul>
+        
         <!-- end -->
     </div>
 
@@ -175,7 +162,11 @@
         
     </div>
 </div>
-
+<?php 
+if ($row['is_admin'] == 1){
+    echo "<a href='admin/index.php'><img src='images/admin.png' style='width:3%; position: fixed; bottom:3px; right:3px;' alt='admin'></a>";
+}
+?>
 <script>
 function validateField() {
     var query = document.getElementById("query");
